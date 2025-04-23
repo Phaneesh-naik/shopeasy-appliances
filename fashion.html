@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShopEasy - Fashion</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+  }
+  header {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-links a {
+    color: orange;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  .product-section {
+    padding: 2rem;
+  }
+  .product-section h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .product-card {
+    width: 220px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .product-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+  }
+  .price {
+    color: orange;
+    font-weight: bold;
+  }
+  .product-buttons button {
+    width: 100%;
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .product-buttons button:hover {
+    background-color: #ff7700;
+  }
+</style>
+</head>
+<body>
+ 
+
+<section class="product-section">
+<h2>Fashion</h2>
+<div class="product-grid">
+
+<div class="product-card">
+  <img src="https://i.ibb.co/cSM6qC61/Men-s-Casual-Shirt.jpg" alt="Men's Shirt">
+  <p>Casual cotton shirt perfect for everyday wear and outings.</p>
+  <h3>Men's Casual Shirt</h3>
+  <p class="price">₹1,299</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Men\'s Casual Shirt', 1299, 'FS001')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/4g9Mb1BC/Women-s-Summer-Dress.jpg" alt="Women's Dress">
+  <p>Lightweight and flowy summer dress with floral patterns.</p>
+  <h3>Women's Summer Dress</h3>
+  <p class="price">₹1,799</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Women\'s Summer Dress', 1799, 'FS002')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/8g8WNGCV/Denim-Jeans.jpg" alt="Jeans">
+  <p>Classic blue denim jeans with a modern slim fit design.</p>
+  <h3>Denim Jeans</h3>
+  <p class="price">₹1,499</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Denim Jeans', 1499, 'FS003')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/Xxz0cZxq/White-Sneakers.jpg" alt="Sneakers">
+  <p>Trendy white sneakers for everyday casual style.</p>
+  <h3>White Sneakers</h3>
+  <p class="price">₹2,199</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('White Sneakers', 2199, 'FS004')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/b5SV15V7/Unisex-Hoodie.jpg" alt="Hoodie">
+  <p>Soft fleece hoodie ideal for chilly days and lounging.</p>
+  <h3>Unisex Hoodie</h3>
+  <p class="price">₹1,899</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Unisex Hoodie', 1899, 'FS005')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/tM0TGBRG/Stylish-Wrist-Watch.jpg" alt="Watch">
+  <p>Elegant wristwatch with leather strap and minimal design.</p>
+  <h3>Stylish Wrist Watch</h3>
+  <p class="price">₹3,499</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Stylish Wrist Watch', 3499, 'FS006')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/GQfPXTxS/Men-s-Cotton-Kurta.jpg" alt="Kurta">
+  <p>Breathable cotton kurta for traditional occasions and festivals.</p>
+  <h3>Men's Cotton Kurta</h3>
+  <p class="price">₹999</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Men\'s Cotton Kurta', 999, 'FS007')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/kgHytrvX/Leather-Handbag.jpg" alt="Handbag">
+  <p>Premium leather handbag with spacious compartments.</p>
+  <h3>Leather Handbag</h3>
+  <p class="price">₹2,699</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Leather Handbag', 2699, 'FS008')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/XkfwdRJB/Baseball-Cap.jpg" alt="Cap">
+  <p>Adjustable baseball cap with embroidered logo detail.</p>
+  <h3>Baseball Cap</h3>
+  <p class="price">₹499</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Baseball Cap', 499, 'FS009')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/8gHHCGdm/UV-Sunglasses.jpg" alt="Sunglasses">
+  <p>UV-protected sunglasses for a bold and modern look.</p>
+  <h3>UV Sunglasses</h3>
+  <p class="price">₹1,099</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('UV Sunglasses', 1099, 'FS010')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/YF5qWs42/Silk-Scarf.jpg" alt="Scarf">
+  <p>Elegant silk scarf to elevate your accessory game.</p>
+  <h3>Silk Scarf</h3>
+  <p class="price">₹699</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Silk Scarf', 699, 'FS011')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/XxhCp4sJ/Men-s-Formal-Shoes.jpg" alt="Formal Shoes">
+  <p>Polished formal shoes perfect for office or events.</p>
+  <h3>Men's Formal Shoes</h3>
+  <p class="price">₹2,499</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Men\'s Formal Shoes', 2499, 'FS012')">Add to Cart</button>
+  </div>
+</div>
+
+</div>
+</section>
+
+<script>
+  function addToCart(name, price, id) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, id });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + " added to cart!");
+  }
+</script>
+</body>
+</html>

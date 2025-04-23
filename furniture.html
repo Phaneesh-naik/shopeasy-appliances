@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ShopEasy - Furniture</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+  }
+  header {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-links a {
+    color: orange;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  .product-section {
+    padding: 2rem;
+  }
+  .product-section h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .product-card {
+    width: 220px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .product-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+  }
+  .price {
+    color: orange;
+    font-weight: bold;
+  }
+  .product-buttons button {
+    width: 100%;
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .product-buttons button:hover {
+    background-color: #ff7700;
+  }
+</style>
+</head>
+<body>
+ 
+<section class="product-section">
+<h2>Furniture</h2>
+<div class="product-grid">
+
+<div class="product-card">
+  <img src="https://i.ibb.co/BHz510Yr/Sofa-Set.jpg" alt="Sofa Set" />
+  <p>Elegant 3-seater sofa with plush cushions and premium upholstery.</p>
+  <h3>Sofa Set</h3>
+  <p class="price">₹22,999</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Sofa Set', 22999, 'FU001')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/3YjfM87R/Coffee-Table.jpg" alt="Dining Table" />
+  <p>6-seater wooden dining table with high-back chairs for a modern look.</p>
+  <h3>Dining Table</h3>
+  <p class="price">₹18,500</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Dining Table', 18500, 'FU002')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/xqHyx50M/Queen-Bed.jpg" alt="Queen Bed" />
+  <p>Queen-size bed with headboard storage and solid wood frame.</p>
+  <h3>Queen Bed</h3>
+  <p class="price">₹19,999</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Queen Bed', 19999, 'FU003')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/hJBfbsNw/Wardrobe.jpg" alt="Wardrobe" />
+  <p>Spacious 3-door wardrobe with mirror and lockable storage.</p>
+  <h3>Wardrobe</h3>
+  <p class="price">₹17,450</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Wardrobe', 17450, 'FU004')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/3YjfM87R/Coffee-Table.jpg" alt="Coffee Table" />
+  <p>Stylish coffee table with lower shelf for books and magazines.</p>
+  <h3>Coffee Table</h3>
+  <p class="price">₹4,299</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Coffee Table', 4299, 'FU005')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/pjFPS337/Bookshelf.jpg" alt="Bookshelf" />
+  <p>5-tier bookshelf made of engineered wood for durable storage.</p>
+  <h3>Bookshelf</h3>
+  <p class="price">₹3,999</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Bookshelf', 3999, 'FU006')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/LzN2Cphz/TV-Unit.jpg" alt="TV Unit" />
+  <p>Contemporary TV unit with drawers and open shelves for decor.</p>
+  <h3>TV Unit</h3>
+  <p class="price">₹7,899</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('TV Unit', 7899, 'FU007')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/d46qW61s/Recliner-Chair.jpg" alt="Recliner Chair" />
+  <p>Comfortable recliner with push-back mechanism and soft padding.</p>
+  <h3>Recliner Chair</h3>
+  <p class="price">₹11,599</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Recliner Chair', 11599, 'FU008')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/jPGzPX3d/Shoe-Rack.jpg" alt="Shoe Rack" />
+  <p>Compact shoe rack with multiple tiers and closed cabinet style.</p>
+  <h3>Shoe Rack</h3>
+  <p class="price">₹2,750</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Shoe Rack', 2750, 'FU009')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/hx9qrwGZ/Study-Table.jpg" alt="Study Table" />
+  <p>Study table with drawer and keyboard tray, perfect for students.</p>
+  <h3>Study Table</h3>
+  <p class="price">₹5,499</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Study Table', 5499, 'FU010')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/27MsPV6K/Dressing-Table.jpg" alt="Dressing Table" />
+  <p>Dressing table with mirror and compact storage for daily essentials.</p>
+  <h3>Dressing Table</h3>
+  <p class="price">₹6,200</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Dressing Table', 6200, 'FU011')">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <img src="https://i.ibb.co/8LyKkg7d/Office-Chair.jpg" alt="Office Chair" />
+  <p>Ergonomic office chair with lumbar support and adjustable height.</p>
+  <h3>Office Chair</h3>
+  <p class="price">₹3,850</p>
+  <div class="product-buttons">
+    <button onclick="addToCart('Office Chair', 3850, 'FU012')">Add to Cart</button>
+  </div>
+</div>
+
+</div>
+</section>
+<script>
+  function addToCart(name, price, id) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, id });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + " added to cart!");
+  }
+</script>
+</body>
+</html>

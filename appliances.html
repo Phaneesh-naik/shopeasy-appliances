@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShopEasy - Appliances</title>
+<style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-links a {
+      color: orange;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 1rem;
+    }
+    .product-section {
+      padding: 2rem;
+    }
+    .product-section h2 {
+      text-align: center;
+      font-size: 2rem;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .product-card {
+      width: 220px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+    }
+    .price {
+      color: orange;
+      font-weight: bold;
+    }
+    .product-buttons button {
+      width: 100%;
+      background-color: orange;
+      border: none;
+      color: black;
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product-buttons button:hover {
+      background-color: #ff7700;
+    }
+  </style>
+</head>
+<body>
+
+<section class="product-section">
+<h2>Appliances</h2>
+<div class="product-grid">
+<div class="product-card">
+<img alt="microwave" border="0" src="https://i.ibb.co/tw7yhHZK/microwave.png"/>
+<p>Efficient microwave with multiple power levels for fast and even cooking.</p><h3>Microwave Oven</h3>
+<p class="price">₹15,499</p>
+<div class="product-buttons">
+<button onclick="addToCart('Microwave Oven', 15499, 'MW001')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="fridge" border="0" src="https://i.ibb.co/b5zSbjPK/fridge.png"/>
+<p>Spacious fridge with frost-free technology and smart inverter compressor.</p><h3>Double Door Fridge</h3>
+<p class="price">₹38,900</p>
+<div class="product-buttons">
+<button onclick="addToCart('Double Door Fridge', 38900, 'FR002')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="washing-machine" border="0" src="https://i.ibb.co/nsgG9bFS/washing-machine.png"/>
+<p>Fully automatic washing machine with intelligent wash programs.</p><h3>Washing Machine</h3>
+<p class="price">₹24,499</p>
+<div class="product-buttons">
+<button onclick="addToCart('Washing Machine', 24499, 'WM003')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="Air-Conditioner" border="0" src="https://i.ibb.co/VYqJxbFm/Air-Conditioner.jpg"/>
+<p>High-performance AC with fast cooling and energy-saving features.</p><h3>Air Conditioner</h3>
+<p class="price">₹41,250</p>
+<div class="product-buttons">
+<button onclick="addToCart('Air Conditioner', 41250, 'AC004')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="Aquaguard-RO-Customer-Care" border="0" src="https://i.ibb.co/0Rq5WmD3/Aquaguard-RO-Customer-Care.jpg"/>
+<p>RO + UV water purifier with advanced filtration and mineral retention.</p><h3>Water Purifier</h3>
+<p class="price">₹10,999</p>
+<div class="product-buttons">
+<button onclick="addToCart('Water Purifier', 10999, 'WP005')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="White-Vacuum-Cleaner" border="0" src="https://i.ibb.co/twnZfR0Z/White-Vacuum-Cleaner.jpg"/>
+<p>Portable vacuum cleaner with strong suction and easy maneuverability.</p><h3>Vacuum Cleaner</h3>
+<p class="price">₹7,499</p>
+<div class="product-buttons">
+<button onclick="addToCart('Vacuum Cleaner', 7499, 'VC006')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="DIO3-T131-FEUK-Indesit-Dishwasher-Full-Size-White" border="0" src="https://i.ibb.co/PZcHWy6m/DIO3-T131-FEUK-Indesit-Dishwasher-Full-Size-White.jpg"/>
+<p>Smart dishwasher with adjustable racks and powerful cleaning cycles.</p><h3>Dishwasher</h3>
+<p class="price">₹39,000</p>
+<div class="product-buttons">
+<button onclick="addToCart('Dishwasher', 39000, 'DW007')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="induction" border="0" src="https://i.ibb.co/B2fh8JH8/induction.jpg"/>
+<p>Compact induction cooktop with feather touch controls and auto shut-off.</p><h3>Induction Cooktop</h3>
+<p class="price">₹3,299</p>
+<div class="product-buttons">
+<button onclick="addToCart('Induction Cooktop', 3299, 'IC008')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="Havells-Sam-Met-75-W-Matt-White-Ceiling-Fan-Fhcsvmtmtw48-Sweep-1200-Mm" border="0" src="https://i.ibb.co/0VVDchYf/Havells-Sam-Met-75-W-Matt-White-Ceiling-Fan-Fhcsvmtmtw48-Sweep-1200-Mm.jpg"/><h3>Ceiling Fan</h3><p>High-speed ceiling fan with energy efficiency and low noise operation.</p>
+<p class="price">₹2,499</p>
+<div class="product-buttons">
+<button onclick="addToCart('Ceiling Fan', 2499, 'CF009')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="Geysers-Buy-Electric-Geysers-Online-Up-To-60-OFF-at-Paytm-Mall" border="0" src="https://i.ibb.co/xq2wqK25/Geysers-Buy-Electric-Geysers-Online-Up-To-60-OFF-at-Paytm-Mall.jpg"/><h3>Geyser</h3><p>Instant geyser with temperature control and overheating protection.</p>
+<p class="price">₹8,850</p>
+<div class="product-buttons">
+<button onclick="addToCart('Geyser', 8850, 'GY010')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="Lifesmart-1500-W-Oil-Filled-Radiator-in-White-YL-A88-7" border="0" src="https://i.ibb.co/JjtZ2KMN/Lifesmart-1500-W-Oil-Filled-Radiator-in-White-YL-A88-7.jpg"/>
+<p>Oil-filled room heater with adjustable thermostat for cozy winters.</p><h3>Room Heater</h3>
+<p class="price">₹4,650</p>
+<div class="product-buttons">
+<button onclick="addToCart('Room Heater', 4650, 'RH011')">Add to Cart</button>
+</div>
+</div>
+<div class="product-card">
+<img alt="Maharaja-Mixer-Grinder-550-W-Black-Grey-indeals-in" border="0" src="https://i.ibb.co/S7JR6bT9/Maharaja-Mixer-Grinder-550-W-Black-Grey-indeals-in.jpg"/>
+<p>Multipurpose mixer grinder with stainless steel jars and powerful motor.</p><h3>Mixer Grinder</h3>
+<p class="price">₹5,799</p>
+<div class="product-buttons">
+<button onclick="addToCart('Mixer Grinder', 5799, 'MG012')">Add to Cart</button>
+</div>
+</div></div>
+</section>
+<script>
+    function addToCart(name, price, id) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price, id });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
+</body>
+</html>

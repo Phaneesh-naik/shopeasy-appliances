@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Info Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      background-color: #ff6600;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #f4f4f4;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff6600;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<header>Delivery Information Form</header>
+
+<div class="form-container">
+  <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdte8_S77UbIK7hFUyPsuF7JxmDo6fmT2cZcwBK5Zb7qE8eZg/formResponse" onsubmit="clearCart()">
+    <label for="username">Username</label>
+    <input type="text" name="entry.218746733" id="username" required>
+
+    <label for="mobile">Mobile Number</label>
+    <input type="tel" name="entry.1781541059" id="mobile" required>
+
+    <label for="email">Email</label>
+    <input type="email" name="entry.553772726" id="email" required>
+
+    <label for="address">Address</label>
+    <textarea name="entry.982559947" id="address" rows="4" required></textarea>
+
+    <label for="products">Products</label>
+    <textarea name="entry.1608954140" id="products" rows="3"></textarea>
+
+
+ <label for="totalPrice">Total Price</label>
+    <textarea name="entry.546735031" id="totalPrice"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<footer>&copy; 2025 SHOPEASY | All rights reserved.</footer>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let productsText = "";
+  let total = 0;
+  cart.forEach(item => {
+    productsText += item.name + " - ₹" + item.price + "\n";
+    total += item.price;
+  });
+  document.getElementById('products').value = productsText.trim();
+  document.getElementById('totalPrice').value = "₹" + total.toLocaleString();
+
+  function clearCart() {
+    localStorage.removeItem('cart');
+  }
+</script>
+
+</body>
+</html>
+
+ 

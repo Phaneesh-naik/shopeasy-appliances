@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: orange;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+    button {
+      background-color: green;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <ul id="cart-items"></ul>
+  <h2>Total: ₹<span id="total">0</span></h2>
+
+  <button onclick="proceedToDelivery()">Proceed to Delivery</button>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartList = document.getElementById('cart-items');
+    const totalSpan = document.getElementById('total');
+    let total = 0;
+    let products = [];
+
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `${item.name} - <span class="price">₹${item.price}</span>`;
+      total += item.price;
+      products.push(item.name);
+      cartList.appendChild(li);
+    });
+
+    totalSpan.innerText = total;
+
+    function proceedToDelivery() {
+      const productNames = encodeURIComponent(products.join(", "));
+      window.location.href = "delivery-form.html?products=" + productNames;
+    }
+  </script>
+</body>
+</html>
