@@ -57,14 +57,27 @@
       background-color: #000;
       color: #fff;
     }
+    .thank-you {
+      text-align: center;
+      margin-top: 100px;
+      display: none;
+    }
+    .thank-you h2 {
+      font-size: 2rem;
+      color: green;
+    }
+    .thank-you p {
+      font-size: 1.2rem;
+      color: #333;
+    }
   </style>
 </head>
 <body>
 
 <header>Delivery Information Form</header>
 
-<div class="form-container">
-  <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdte8_S77UbIK7hFUyPsuF7JxmDo6fmT2cZcwBK5Zb7qE8eZg/formResponse" onsubmit="clearCart()">
+<div class="form-container" id="formContainer">
+  <form action="" id="deliveryForm">
     <label for="username">Username</label>
     <input type="text" name="entry.218746733" id="username" required>
 
@@ -78,14 +91,18 @@
     <textarea name="entry.982559947" id="address" rows="4" required></textarea>
 
     <label for="products">Products</label>
-    <textarea name="entry.1608954140" id="products" rows="3"></textarea>
+    <textarea name="entry.1608954140" id="products" rows="3" readonly></textarea>
 
-
- <label for="totalPrice">Total Price</label>
-    <textarea name="entry.546735031" id="totalPrice"></textarea>
+    <label for="totalPrice">Total Price</label>
+    <textarea name="entry.546735031" id="totalPrice" readonly></textarea>
 
     <button type="submit">Submit</button>
   </form>
+</div>
+
+<div class="thank-you" id="thankYouMsg">
+  <h2>Thank you for shopping with us! 🛍️</h2>
+  <p>Your delivery information has been submitted successfully.</p>
 </div>
 
 <footer>&copy; 2025 SHOPEASY | All rights reserved.</footer>
@@ -96,19 +113,23 @@
   let total = 0;
 
   cart.forEach(item => {
-    productsText += `${item.name} (x${item.quantity}) - ₹${item.price * item.quantity}\n`;
-    total += item.price * item.quantity;
+    const quantity = item.quantity || 1;
+    productsText += `${item.name} (x${quantity}) - ₹${item.price * quantity}\n`;
+    total += item.price * quantity;
   });
 
   document.getElementById('products').value = productsText.trim();
   document.getElementById('totalPrice').value = "₹" + total.toLocaleString();
 
-  function clearCart() {
+  document.getElementById('deliveryForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent actual submission for this custom flow
     localStorage.removeItem('cart');
-  }
+
+    // Simulate Google Form submission
+    document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('thankYouMsg').style.display = 'block';
+  });
 </script>
 
 </body>
 </html>
-
- 
