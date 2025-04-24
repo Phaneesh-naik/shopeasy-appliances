@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Delivery Info Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
       margin: 0;
@@ -51,24 +52,22 @@
     button:hover {
       background-color: #ff6600;
     }
+    .thank-you {
+      display: none;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #e6f4ea;
+      border-radius: 10px;
+      text-align: center;
+      color: #2e7d32;
+      font-size: 18px;
+    }
     footer {
       text-align: center;
       padding: 20px;
       background-color: #000;
       color: #fff;
-    }
-    .thank-you {
-      text-align: center;
-      margin-top: 100px;
-      display: none;
-    }
-    .thank-you h2 {
-      font-size: 2rem;
-      color: green;
-    }
-    .thank-you p {
-      font-size: 1.2rem;
-      color: #333;
     }
   </style>
 </head>
@@ -77,7 +76,7 @@
 <header>Delivery Information Form</header>
 
 <div class="form-container" id="formContainer">
-  <form action="" id="deliveryForm">
+  <form target="hidden_iframe" onsubmit="submitted=true" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdte8_S77UbIK7hFUyPsuF7JxmDo6fmT2cZcwBK5Zb7qE8eZg/formResponse">
     <label for="username">Username</label>
     <input type="text" name="entry.218746733" id="username" required>
 
@@ -100,14 +99,19 @@
   </form>
 </div>
 
+<!-- Thank you message -->
 <div class="thank-you" id="thankYouMsg">
   <h2>Thank you for shopping with us! 🛍️</h2>
   <p>Your delivery information has been submitted successfully.</p>
 </div>
 
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) showThankYou()"></iframe>
+
 <footer>&copy; 2025 SHOPEASY | All rights reserved.</footer>
 
 <script>
+  let submitted = false;
+
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   let productsText = "";
   let total = 0;
@@ -121,14 +125,11 @@
   document.getElementById('products').value = productsText.trim();
   document.getElementById('totalPrice').value = "₹" + total.toLocaleString();
 
-  document.getElementById('deliveryForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent actual submission for this custom flow
+  function showThankYou() {
+    document.getElementById('formContainer').style.display = "none";
+    document.getElementById('thankYouMsg').style.display = "block";
     localStorage.removeItem('cart');
-
-    // Simulate Google Form submission
-    document.getElementById('formContainer').style.display = 'none';
-    document.getElementById('thankYouMsg').style.display = 'block';
-  });
+  }
 </script>
 
 </body>
