@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,22 +19,40 @@
     li {
       border-bottom: 1px solid #ccc;
       padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .price {
       color: green;
       font-weight: bold;
     }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
     button {
       background-color: green;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1rem;
       border: none;
       border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
     }
+    .qty-btn {
+      background-color: #555;
+      padding: 0.3rem 0.7rem;
+    }
+    .qty-btn:hover {
+      background-color: #333;
+    }
+    .remove-btn {
+      background-color: red;
+    }
     button:hover {
-      background-color: darkgreen;
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -47,26 +64,58 @@
   <button onclick="proceedToDelivery()">Proceed to Delivery</button>
 
   <script>
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartList = document.getElementById('cart-items');
     const totalSpan = document.getElementById('total');
-    let total = 0;
-    let products = [];
 
-    cart.forEach(item => {
-      const li = document.createElement('li');
-      li.innerHTML = `${item.name} - <span class="price">₹${item.price}</span>`;
-      total += item.price;
-      products.push(item.name);
-      cartList.appendChild(li);
-    });
+    function updateCart() {
+      cartList.innerHTML = '';
+      let total = 0;
 
-    totalSpan.innerText = total;
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div>
+            ${item.name} - 
+            <span class="price">₹${item.price}</span> × 
+            ${item.quantity} = 
+            <span class="price">₹${item.price * item.quantity}</span>
+          </div>
+          <div class="controls">
+            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+        cartList.appendChild(li);
+      });
+
+      totalSpan.innerText = total;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function changeQuantity(index, change) {
+      if (cart[index].quantity + change <= 0) return;
+      cart[index].quantity += change;
+      updateCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
 
     function proceedToDelivery() {
-      const productNames = encodeURIComponent(products.join(", "));
+      const products = cart.map(item => `${item.name} (x${item.quantity})`).join(", ");
+      const productNames = encodeURIComponent(products);
       window.location.href = "delivery-form.html?products=" + productNames;
     }
+
+    // Initialize quantities if missing
+    cart = cart.map(item => ({ ...item, quantity: item.quantity || 1 }));
+    updateCart();
   </script>
 </body>
 </html>
