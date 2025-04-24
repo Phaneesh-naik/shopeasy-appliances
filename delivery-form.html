@@ -94,10 +94,12 @@
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   let productsText = "";
   let total = 0;
+
   cart.forEach(item => {
-    productsText += item.name + " - ₹" + item.price + "\n";
-    total += item.price;
+    productsText += `${item.name} (x${item.quantity}) - ₹${item.price * item.quantity}\n`;
+    total += item.price * item.quantity;
   });
+
   document.getElementById('products').value = productsText.trim();
   document.getElementById('totalPrice').value = "₹" + total.toLocaleString();
 
